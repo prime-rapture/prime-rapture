@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Подарок от сообщества VK</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #111;
+      overflow-x: hidden;
+    }
+
+    .bg {
+      position: fixed;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
+      filter: brightness(0.4);
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .popup {
+      width: 100%;
+      max-width: 620px;
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      animation: show 0.35s ease;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+
+    @keyframes show {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .top-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .content {
+      padding: 34px 28px 40px;
+      text-align: center;
+      position: relative;
+    }
+
+    .arrow {
+      position: absolute;
+      left: -40px;
+      top: -100px;
+      width: 180px;
+      transform: rotate(-8deg);
+    }
+
+    h1 {
+      font-size: 34px;
+      margin-bottom: 18px;
+      color: #111;
+    }
+
+    .gift-text {
+      font-size: 21px;
+      line-height: 1.5;
+      margin-bottom: 28px;
+      color: #333;
+    }
+
+    .small-text {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .avatars {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .avatars img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 3px solid white;
+      margin-left: -10px;
+    }
+
+    .subs {
+      margin-left: 14px;
+      color: #777;
+      font-size: 15px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #4a7ecf;
+      color: white;
+      text-decoration: none;
+      padding: 18px 42px;
+      border-radius: 14px;
+      font-size: 24px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: #3f70bc;
+    }
+
+    .timer {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #d22;
+      font-weight: bold;
+    }
+
+    @media (max-width: 640px) {
+      .top-image {
+        height: 220px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      .gift-text {
+        font-size: 18px;
+      }
+
+      .small-text {
+        font-size: 16px;
+      }
+
+      .btn {
+        width: 100%;
+        font-size: 20px;
+      }
+
+      .arrow {
+        width: 120px;
+        left: -25px;
+        top: -80px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg"></div>
+
+  <div class="overlay">
+    <div class="popup">
+
+      <!-- Верхняя картинка -->
+      <img
+        class="top-image"
+        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop"
+        alt="banner"
+      />
+
+      <div class="content">
+
+        <!-- Стрелка -->
+        <img
+          class="arrow"
+          src="https://cdn-icons-png.flaticon.com/512/545/545682.png"
+          alt="arrow"
+        />
+
+        <h1>Твой подарок от Prime &amp; Rapture</h1>
+
+        <div class="gift-text">
+          👋 Получи подарок от Prime &amp; Rapture<br>Casual магазин одежды • Саратов
+        </div>
+
+        <div class="small-text">
+          Нажми кнопку «Получить 🎁»<br>
+          и забери подарок автоматически в сообщениях VK
+        </div>
+
+        <div class="avatars">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg">
+          <img src="https://randomuser.me/api/portraits/men/75.jpg">
+          <div class="subs">Подписчиков: 4807</div>
+        </div>
+
+        <!-- ВАЖНО -->
+        <!-- Замени ID группы -->
+        <a class="btn" href="https://vk.me/prime_rapture_store">
+          Получить 🎁
+        </a>
+
+        <div class="timer">
+          Подарок доступен только сегодня
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
