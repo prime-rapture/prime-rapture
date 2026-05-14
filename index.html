@@ -3,16 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Подарок от сообщества VK</title>
+  <title>Подарок от Prime & Rapture</title>
+
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     body {
+      min-height: 100vh;
       background: #111;
       overflow-x: hidden;
     }
@@ -20,8 +22,9 @@
     .bg {
       position: fixed;
       inset: 0;
-      background: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
-      filter: brightness(0.4);
+      background: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat;
+      filter: brightness(0.32) blur(1px);
+      transform: scale(1.02);
     }
 
     .overlay {
@@ -31,147 +34,220 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
+      padding: 18px;
     }
 
     .popup {
       width: 100%;
-      max-width: 620px;
-      background: white;
-      border-radius: 24px;
-      overflow: hidden;
-      position: relative;
+      max-width: 760px;
+      max-height: 96vh;
+      overflow-y: auto;
+      background: #fff;
+      border-radius: 28px;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.45);
       animation: show 0.35s ease;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      position: relative;
     }
 
     @keyframes show {
-      from {
-        opacity: 0;
-        transform: scale(0.95);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
     }
 
-    .top-image {
+    .hero {
       width: 100%;
-      height: 300px;
+      height: 330px;
       object-fit: cover;
+      object-position: center top;
       display: block;
+      border-radius: 28px 28px 0 0;
+    }
+
+    .close {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.8);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+      text-decoration: none;
+      line-height: 1;
     }
 
     .content {
-      padding: 34px 28px 40px;
+      padding: 38px 56px 46px;
       text-align: center;
-      position: relative;
     }
 
-    .arrow {
-      position: absolute;
-      left: -40px;
-      top: -100px;
-      width: 180px;
-      transform: rotate(-8deg);
-    }
-
-    h1 {
-      font-size: 34px;
-      margin-bottom: 18px;
-      color: #111;
-    }
-
-    .gift-text {
-      font-size: 21px;
-      line-height: 1.5;
-      margin-bottom: 28px;
-      color: #333;
-    }
-
-    .small-text {
-      font-size: 18px;
+    .pretitle {
+      font-size: 26px;
       color: #666;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .brand {
+      font-size: 64px;
+      line-height: 1;
+      font-weight: 950;
+      color: #050505;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .line {
+      height: 2px;
+      background: #ddd;
       margin-bottom: 30px;
-      line-height: 1.6;
+    }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 34px;
+    }
+
+    .benefit {
+      text-align: center;
+      color: #333;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.25;
+      text-transform: uppercase;
+    }
+
+    .benefit-icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      background: #050505;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+    }
+
+    .offer-box {
+      background: #f4f4f4;
+      border-radius: 18px;
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+
+    .offer-icon {
+      min-width: 82px;
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      background: #050505;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+    }
+
+    .offer-title {
+      font-size: 27px;
+      font-weight: 950;
+      text-transform: uppercase;
+      color: #050505;
+      margin-bottom: 6px;
+    }
+
+    .offer-text {
+      font-size: 23px;
+      line-height: 1.25;
+      color: #222;
+      text-transform: uppercase;
     }
 
     .avatars {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 30px;
+      margin-bottom: 28px;
     }
 
     .avatars img {
-      width: 42px;
-      height: 42px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       border: 3px solid white;
       margin-left: -10px;
+      object-fit: cover;
     }
 
     .subs {
-      margin-left: 14px;
-      color: #777;
-      font-size: 15px;
+      margin-left: 18px;
+      color: #555;
+      font-size: 20px;
     }
 
     .btn {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      background: #4a7ecf;
+      gap: 14px;
+      width: 100%;
+      background: #050505;
       color: white;
       text-decoration: none;
-      padding: 18px 42px;
-      border-radius: 14px;
-      font-size: 24px;
-      font-weight: bold;
+      padding: 25px 24px;
+      border-radius: 12px;
+      font-size: 32px;
+      font-weight: 950;
+      text-transform: uppercase;
       transition: 0.2s;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
     }
 
     .btn:hover {
       transform: translateY(-2px);
-      background: #3f70bc;
+      background: #1a1a1a;
     }
 
-    .timer {
-      margin-top: 20px;
-      font-size: 16px;
-      color: #d22;
-      font-weight: bold;
+    .safe {
+      margin-top: 22px;
+      color: #777;
+      font-size: 20px;
+      line-height: 1.35;
     }
 
-    @media (max-width: 640px) {
-      .top-image {
-        height: 220px;
-      }
-
-      h1 {
-        font-size: 26px;
-      }
-
-      .gift-text {
-        font-size: 18px;
-      }
-
-      .small-text {
-        font-size: 16px;
-      }
-
-      .btn {
-        width: 100%;
-        font-size: 20px;
-      }
-
-      .arrow {
-        width: 120px;
-        left: -25px;
-        top: -80px;
-      }
+    @media (max-width: 720px) {
+      .popup { border-radius: 22px; }
+      .hero { height: 245px; border-radius: 22px 22px 0 0; }
+      .content { padding: 30px 24px 34px; }
+      .pretitle { font-size: 18px; letter-spacing: 2px; }
+      .brand { font-size: 42px; }
+      .benefits { gap: 10px; }
+      .benefit { font-size: 13px; }
+      .benefit-icon { width: 56px; height: 56px; font-size: 26px; }
+      .offer-box { padding: 18px; gap: 14px; }
+      .offer-icon { min-width: 58px; width: 58px; height: 58px; font-size: 30px; }
+      .offer-title { font-size: 20px; }
+      .offer-text { font-size: 17px; }
+      .btn { font-size: 22px; padding: 20px 16px; }
+      .safe { font-size: 15px; }
+      .subs { font-size: 15px; }
+      .close { width: 44px; height: 44px; font-size: 28px; }
     }
   </style>
 </head>
@@ -181,51 +257,55 @@
 
   <div class="overlay">
     <div class="popup">
+      <a class="close" href="#">×</a>
 
-      <!-- Верхняя картинка -->
-      <img
-        class="top-image"
-        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop"
-        alt="banner"
-      />
+      <!-- ВАЖНО: загрузи картинку в GitHub с названием avatar.jpg -->
+      <img class="hero" src="avatar.jpg" alt="Prime & Rapture" />
 
       <div class="content">
+        <div class="pretitle">🎁 Твой подарок от</div>
+        <div class="brand">Prime & Rapture</div>
 
-        <!-- Стрелка -->
-        <img
-          class="arrow"
-          src="https://cdn-icons-png.flaticon.com/512/545/545682.png"
-          alt="arrow"
-        />
+        <div class="line"></div>
 
-        <h1>Твой подарок от Prime &amp; Rapture</h1>
-
-        <div class="gift-text">
-          👋 Получи подарок от Prime &amp; Rapture<br>Casual магазин одежды • Саратов
+        <div class="benefits">
+          <div class="benefit">
+            <div class="benefit-icon">%</div>
+            Эксклюзивная<br>скидка
+          </div>
+          <div class="benefit">
+            <div class="benefit-icon">🎁</div>
+            Подарок<br>за подписку
+          </div>
+          <div class="benefit">
+            <div class="benefit-icon">⚡</div>
+            Доступ к новинкам<br>первым
+          </div>
         </div>
 
-        <div class="small-text">
-          Нажми кнопку «Получить 🎁»<br>
-          и забери подарок автоматически в сообщениях VK
+        <div class="offer-box">
+          <div class="offer-icon">🎁</div>
+          <div>
+            <div class="offer-title">Подарок для своих</div>
+            <div class="offer-text">Подпишись на сообщения и получи закрытый бонус</div>
+          </div>
         </div>
 
         <div class="avatars">
-          <img src="https://randomuser.me/api/portraits/women/44.jpg">
-          <img src="https://randomuser.me/api/portraits/men/32.jpg">
-          <img src="https://randomuser.me/api/portraits/men/75.jpg">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+          <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="">
           <div class="subs">Подписчиков: 4807</div>
         </div>
 
-        <!-- ВАЖНО -->
-        <!-- Замени ID группы -->
         <a class="btn" href="https://vk.me/prime_rapture_store">
-          Получить 🎁
+          Получить подарок 🎁
         </a>
 
-        <div class="timer">
-          Подарок доступен только сегодня
+        <div class="safe">
+          🛡 Никакого спама. Только полезные предложения<br>
+          и закрытые скидки для своих.
         </div>
-
       </div>
     </div>
   </div>
