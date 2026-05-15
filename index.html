@@ -1,298 +1,318 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Подарок от Prime & Rapture</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Prime & Rapture — Private Access</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,Helvetica,sans-serif;
+}
 
-    body {
-      min-height: 100vh;
-      background: #111;
-      overflow: hidden;
-    }
+body{
+  min-height:100vh;
+  overflow:hidden;
+  background:#000;
+}
 
-    .bg {
-      position: fixed;
-      inset: 0;
-      background: url('avatar.jpg') center/cover no-repeat;
-      filter: brightness(0.25) blur(3px);
-      transform: scale(1.06);
-    }
+.bg{
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at top,#222 0%,#050505 55%),
+    linear-gradient(135deg,#111,#000);
+}
 
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.45);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 14px;
-    }
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
 
-    .popup {
-      width: 100%;
-      max-width: 520px;
-      background: #fff;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 25px 80px rgba(0,0,0,0.6);
-      position: relative;
-      animation: show 0.28s ease;
-    }
+.popup{
+  width:100%;
+  max-width:500px;
+  background:#0a0a0a;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:0 25px 80px rgba(0,0,0,.75);
+  position:relative;
+  animation:show .35s ease;
+}
 
-    @keyframes show {
-      from { opacity: 0; transform: scale(0.96); }
-      to { opacity: 1; transform: scale(1); }
-    }
+@keyframes show{
+  from{opacity:0;transform:translateY(10px) scale(.96)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
 
-    .close {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: #050505;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 26px;
-      text-decoration: none;
-      z-index: 3;
-    }
+.close{
+  position:absolute;
+  top:16px;
+  right:16px;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-size:28px;
+  z-index:5;
+  backdrop-filter:blur(10px);
+}
 
-    .hero {
-      width: 100%;
-      height: 190px;
-      background-image: url('avatar.jpg');
-      background-repeat: no-repeat;
-      background-size: 145% auto;
-      background-position: center top;
-      background-color: #e5e5e5;
-    }
+.hero{
+  height:250px;
+  background:
+    linear-gradient(to bottom,rgba(0,0,0,.05),rgba(0,0,0,.6)),
+    url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop') center top/cover no-repeat;
+}
 
-    .content {
-      padding: 24px 34px 28px;
-      text-align: center;
-    }
+.content{
+  padding:34px 30px 30px;
+  color:#fff;
+  text-align:center;
+}
 
-    .pretitle {
-      color: #777;
-      font-size: 17px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 8px;
-    }
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08);
+  color:#d7d7d7;
+  padding:10px 16px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  margin-bottom:20px;
+}
 
-    .brand {
-      color: #050505;
-      font-size: 42px;
-      line-height: 0.96;
-      font-weight: 950;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
+.title{
+  font-size:52px;
+  line-height:.92;
+  font-weight:900;
+  text-transform:uppercase;
+  margin-bottom:14px;
+  letter-spacing:-2px;
+}
 
-    .line {
-      height: 1px;
-      background: #ddd;
-      margin-bottom: 18px;
-    }
+.subtitle{
+  color:#a0a0a0;
+  font-size:16px;
+  line-height:1.5;
+  margin-bottom:28px;
+}
 
-    .benefits {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-bottom: 18px;
-    }
+.features{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-bottom:28px;
+}
 
-    .benefit {
-      color: #111;
-      font-size: 12px;
-      line-height: 1.2;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
+.feature{
+  background:#111;
+  border:1px solid rgba(255,255,255,.05);
+  border-radius:18px;
+  padding:16px 10px;
+}
 
-    .benefit-icon {
-      width: 46px;
-      height: 46px;
-      margin: 0 auto 7px;
-      border-radius: 50%;
-      background: #050505;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-    }
+.feature-icon{
+  font-size:24px;
+  margin-bottom:10px;
+}
 
-    .offer-box {
-      background: #f3f3f3;
-      border-radius: 16px;
-      padding: 15px 17px;
-      display: flex;
-      align-items: center;
-      gap: 13px;
-      text-align: left;
-      margin-bottom: 18px;
-    }
+.feature-text{
+  font-size:11px;
+  line-height:1.3;
+  text-transform:uppercase;
+  font-weight:800;
+  color:#ddd;
+}
 
-    .offer-icon {
-      width: 50px;
-      min-width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: #050505;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 26px;
-    }
+.access{
+  background:linear-gradient(135deg,#151515,#0d0d0d);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:22px;
+  padding:22px;
+  margin-bottom:24px;
+  text-align:left;
+}
 
-    .offer-title {
-      font-size: 18px;
-      font-weight: 950;
-      color: #050505;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
+.access-title{
+  font-size:28px;
+  font-weight:900;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
 
-    .offer-text {
-      font-size: 14px;
-      line-height: 1.25;
-      font-weight: 800;
-      color: #333;
-      text-transform: uppercase;
-    }
+.access-text{
+  color:#b9b9b9;
+  line-height:1.5;
+  font-size:15px;
+}
 
-    .avatars {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 18px;
-    }
+.btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  padding:20px;
+  border-radius:18px;
+  background:#fff;
+  color:#000;
+  text-decoration:none;
+  font-size:20px;
+  font-weight:900;
+  text-transform:uppercase;
+  transition:.2s;
+  margin-bottom:16px;
+}
 
-    .avatars img {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      border: 3px solid #fff;
-      margin-left: -8px;
-      object-fit: cover;
-    }
+.btn:hover{
+  transform:translateY(-2px);
+}
 
-    .subs {
-      margin-left: 12px;
-      color: #555;
-      font-size: 14px;
-    }
+.bottom{
+  color:#707070;
+  font-size:13px;
+  line-height:1.5;
+}
 
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      background: #050505;
-      color: #fff;
-      text-decoration: none;
-      padding: 17px 16px;
-      border-radius: 12px;
-      font-size: 21px;
-      font-weight: 950;
-      text-transform: uppercase;
-      transition: 0.2s;
-    }
+@media(max-width:540px){
+  body{overflow:auto}
 
-    .btn:hover {
-      transform: translateY(-2px);
-      background: #1a1a1a;
-    }
+  .overlay{
+    align-items:flex-start;
+    padding:12px;
+  }
 
-    .safe {
-      margin-top: 12px;
-      color: #777;
-      font-size: 12px;
-      line-height: 1.35;
-    }
+  .hero{
+    height:210px;
+  }
 
-    @media (max-width: 540px) {
-      body { overflow: auto; }
-      .overlay { align-items: flex-start; padding: 10px; }
-      .popup { max-width: 100%; border-radius: 20px; }
-      .hero { height: 190px; background-position: center 15%; }
-      .content { padding: 20px 18px 24px; }
-      .pretitle { font-size: 14px; }
-      .brand { font-size: 34px; }
-      .benefit { font-size: 11px; }
-      .benefit-icon { width: 42px; height: 42px; font-size: 20px; }
-      .offer-title { font-size: 16px; }
-      .offer-text { font-size: 12px; }
-      .btn { font-size: 18px; }
-    }
-  </style>
+  .content{
+    padding:24px 18px 24px;
+  }
+
+  .title{
+    font-size:40px;
+  }
+
+  .subtitle{
+    font-size:14px;
+  }
+
+  .features{
+    gap:8px;
+  }
+
+  .feature{
+    padding:14px 6px;
+  }
+
+  .feature-text{
+    font-size:10px;
+  }
+
+  .access-title{
+    font-size:22px;
+  }
+
+  .btn{
+    font-size:17px;
+    padding:18px;
+  }
+}
+</style>
 </head>
 <body>
-  <div class="bg"></div>
 
-  <div class="overlay">
-    <div class="popup">
-      <a class="close" href="#">×</a>
-      <div class="hero"></div>
+<div class="bg"></div>
 
-      <div class="content">
-        <div class="pretitle">🎁 Твой подарок от</div>
-        <div class="brand">Prime &amp; Rapture</div>
-        <div class="line"></div>
+<div class="overlay">
+  <div class="popup">
 
-        <div class="benefits">
-          <div class="benefit">
-            <div class="benefit-icon">%</div>
-            Закрытая<br>скидка
-          </div>
-          <div class="benefit">
-            <div class="benefit-icon">🎁</div>
-            Подарок<br>за подписку
-          </div>
-          <div class="benefit">
-            <div class="benefit-icon">⚡</div>
-            Новинки<br>первыми
+    <a href="#" class="close">×</a>
+
+    <div class="hero"></div>
+
+    <div class="content">
+
+      <div class="badge">
+        ⚡ Prime & Rapture Members
+      </div>
+
+      <div class="title">
+        Private<br>Access
+      </div>
+
+      <div class="subtitle">
+        Закрытые скидки • Early access • Private drops<br>
+        Только для подписчиков Prime & Rapture.
+      </div>
+
+      <div class="features">
+
+        <div class="feature">
+          <div class="feature-icon">🖤</div>
+          <div class="feature-text">
+            Members<br>only
           </div>
         </div>
 
-        <div class="offer-box">
-          <div class="offer-icon">🎁</div>
-          <div>
-            <div class="offer-title">Подарок для своих</div>
-            <div class="offer-text">Подпишись на сообщения и получи закрытый бонус</div>
+        <div class="feature">
+          <div class="feature-icon">⚡</div>
+          <div class="feature-text">
+            Early<br>access
           </div>
         </div>
 
-        <div class="avatars">
-          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
-          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
-          <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="">
-          <div class="subs">Подписчиков: 4807</div>
+        <div class="feature">
+          <div class="feature-icon">🎁</div>
+          <div class="feature-text">
+            Secret<br>offers
+          </div>
         </div>
 
-        <a class="btn" href="https://vk.me/prime_rapture_store">Получить подарок 🎁</a>
+      </div>
 
-        <div class="safe">
-          🛡 Никакого спама. Только предложения и закрытые скидки для своих.
+      <div class="access">
+        <div class="access-title">
+          Join the club
+        </div>
+
+        <div class="access-text">
+          Получи доступ к закрытым предложениям,
+          private drop’ам и эксклюзивным скидкам бренда.
         </div>
       </div>
+
+      <a class="btn" href="https://vk.me/prime_rapture_store">
+        Получить доступ
+      </a>
+
+      <div class="bottom">
+        Prime & Rapture • Casual & Streetwear • Saratov
+      </div>
+
     </div>
   </div>
+</div>
+
 </body>
 </html>
