@@ -17,13 +17,15 @@ html,body{width:100%;min-height:100%;background:#020202;font-family:'Inter',Aria
 .bg:after{content:'';position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1600&auto=format&fit=crop');background-size:cover;background-position:center top;opacity:.16;filter:blur(4px) grayscale(.2);transform:scale(1.04)}
 .grain{position:fixed;inset:0;pointer-events:none;opacity:.1;background-image:url('https://www.transparenttextures.com/patterns/asfalt-light.png')}
 
+.loader{position:fixed;inset:0;z-index:50;background:#030303;color:#fff;display:flex;align-items:center;justify-content:center;flex-direction:column;animation:loaderOut .7s ease forwards;animation-delay:1.35s}.loader-logo{font-family:'Bebas Neue',Arial,sans-serif;font-size:54px;letter-spacing:2px;margin-bottom:6px}.loader-sub{font-size:11px;font-weight:900;letter-spacing:2px;color:#8fb9ff;text-transform:uppercase;margin-bottom:16px}.loader-line{width:190px;height:3px;background:rgba(255,255,255,.12);border-radius:999px;overflow:hidden}.loader-line span{display:block;width:60%;height:100%;background:#fff;border-radius:999px;animation:loading 1.15s ease-in-out forwards}@keyframes loading{from{transform:translateX(-100%)}to{transform:translateX(170%)}}@keyframes loaderOut{to{opacity:0;visibility:hidden;pointer-events:none}}
+
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;padding:16px;z-index:2}
 .popup{width:100%;max-width:480px;background:rgba(8,8,8,.84);border:1px solid rgba(255,255,255,.11);border-radius:28px;overflow:hidden;box-shadow:0 30px 100px rgba(0,0,0,.72);position:relative;backdrop-filter:blur(22px);animation:popupIn .45s ease both}
 @keyframes popupIn{from{opacity:0;transform:translateY(20px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
 
 .close{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.13);color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:25px;z-index:5;backdrop-filter:blur(14px)}
 
-.hero{height:185px;position:relative;background:linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,.58)),url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop') center 18%/cover no-repeat}
+.hero{height:230px;position:relative;background:linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,.52)),url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop') center 26%/cover no-repeat}
 .live-pill{position:absolute;left:16px;top:16px;display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:999px;background:rgba(0,0,0,.52);border:1px solid rgba(255,255,255,.12);font-size:11px;font-weight:800;backdrop-filter:blur(14px)}
 .live-dot{width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 14px #fff;animation:pulseDot 1.4s infinite}@keyframes pulseDot{0%,100%{opacity:.45;transform:scale(.8)}50%{opacity:1;transform:scale(1.2)}}
 
@@ -43,13 +45,19 @@ html,body{width:100%;min-height:100%;background:#020202;font-family:'Inter',Aria
 
 .vk-modal{position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.58);display:none;align-items:center;justify-content:center;padding:20px}.vk-box{width:100%;max-width:420px;background:#fff;border-radius:18px;padding:28px;text-align:center;color:#111;box-shadow:0 20px 70px rgba(0,0,0,.45);animation:vkIn .25s ease}@keyframes vkIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.vk-logo{width:62px;height:62px;background:#2787f5;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;margin:0 auto 16px}.vk-box h3{font-size:22px;margin-bottom:10px}.vk-box p{font-size:15px;color:#666;line-height:1.45;margin-bottom:22px}.vk-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px}.vk-cancel,.vk-allow{border:0;border-radius:10px;padding:14px;font-weight:800;cursor:pointer}.vk-cancel{background:#eee;color:#3570b9}.vk-allow{background:#4a7ecf;color:#fff}
 
-@media(max-width:540px){html,body{overflow:auto}.overlay{align-items:flex-start;padding:10px}.popup{max-width:100%;border-radius:24px}.hero{height:175px}.content{padding:22px 17px 24px}.title{font-size:45px}.subtitle{font-size:12px}.features{gap:7px}.feature{padding:11px 5px}.access-title{font-size:27px}.btn{font-size:15px;padding:16px}.toast{left:12px;right:12px;bottom:12px}}
+@media(max-width:540px){html,body{overflow:auto}.overlay{align-items:flex-start;padding:10px}.popup{max-width:100%;border-radius:24px}.hero{height:205px}.content{padding:22px 17px 24px}.title{font-size:45px}.subtitle{font-size:12px}.features{gap:7px}.feature{padding:11px 5px}.access-title{font-size:27px}.btn{font-size:15px;padding:16px}.toast{left:12px;right:12px;bottom:12px}}
 </style>
 </head>
 <body>
 
 <div class="bg"></div>
 <div class="grain"></div>
+
+<div class="loader">
+  <div class="loader-logo">PRIME & RAPTURE</div>
+  <div class="loader-sub">PRIVATE ACCESS LOADING</div>
+  <div class="loader-line"><span></span></div>
+</div>
 
 <div class="overlay">
   <div class="popup" id="popup">
